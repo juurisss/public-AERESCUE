@@ -12,7 +12,7 @@ AERESCUE was developed as a research prototype for the Science and Technology Fa
 
 For a more detailed explanation of the codebase and system architecture, see:
 
-[Codebase Explanation](./docs/codebase_explanation.md)
+[Codebase Explanation](./docs/codebase_explaination.md)
 [End Goal](./docs/end_goal.md)
 
 > This repository contains the software, experimental tools, and supporting code used in the development and evaluation of AERESCUE.
