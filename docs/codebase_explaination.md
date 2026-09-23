@@ -4,18 +4,7 @@ AERESCUE is a shore-based, dual-camera computer-vision prototype for simulated w
 
 The repository has three main runtime layers:
 
-```text
-Browser UI (ui/ and data-collection/)
-              | HTTP / JSON / MJPEG
-              v
-      server.py (Flask API)
-        |                 |
-        |                 +-- remote_camera.py
-        |                     browser-camera frame uploads
-        |
-        +-- orange_object_tracker.app
-            one tracker process per local camera
-```
+<img width="2158" height="1985" alt="Untitled diagram-2026-09-23-020346" src="https://github.com/user-attachments/assets/4a9977df-a2c6-4a53-beee-561f93bb05d2" />
 
 The browser polls the server for tracking measurements. The tracker reports observations to the server, while the browser performs the display-side triangulation, relative-distance calculations, and guidance presentation.
 
