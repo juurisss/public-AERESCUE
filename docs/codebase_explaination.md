@@ -84,9 +84,9 @@ The tracker is deliberately independent enough to run without the Flask server. 
 The main operator console and camera tools.
 
 - `index.html`, `app.js`, and `styles.css` implement the two-camera console, target marking, live tracking status, triangulation display, relative-distance calculations, and guidance presentation.
-- `calibrate.html`, `calibrate.js`, and `calibrate.css` provide calibration controls and previews.
+- `calibrate.html`, `calibrate.js`, and `calibrate.css` provide calibration controls and previews. (experimental)
 - `camera.html`, `camera.js`, and `camera.css` let a remote device share its camera through the browser-camera API.
-- `heading-calibration.js` contains the heading-calibration workflow used by the console.
+- `heading-calibration.js` contains the heading-calibration workflow used by the console. (experimental)
 
 The UI is plain browser JavaScript; there is no frontend build step. `server.py` serves these files directly.
 
