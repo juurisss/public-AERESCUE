@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>AERESCUE — Wall calibration</title>
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/calibrate.css">
+</head>
+<body class="calibration-page"><main class="panel utility-page">
+  <h1>Camera calibration</h1>
+  <p><a href="/" target="_blank" rel="noopener">Open console</a> to select and start two camera previews first. Keep both cameras fixed during calibration.</p>
+  <section class="panel heading-calibration">
+    <h2>Camera heading calibration</h2>
+    <p>Use the same physical marker in both views. Enter that marker's known perpendicular depth for each pair, then repeat at different depths and positions. The marker's lateral position is calculated and does not need to be entered.</p>
+    <div class="settings-grid wall-settings">
+      <label>Camera baseline (m)<input id="headingBaseline" type="number" min="0.01" step="0.01" placeholder="e.g. 1.25"></label>
+      <label>Camera A HFOV (degrees)<input id="headingFovA" type="number" min="1.1" max="178.9" step="0.01" placeholder="Use saved HFOV"></label>
+      <label>Camera B HFOV (degrees)<input id="headingFovB" type="number" min="1.1" max="178.9" step="0.01" placeholder="Use saved HFOV"></label>
+      <label>Current point perpendicular depth (m)<input id="headingDepth" type="number" min="0.01" step="0.01" placeholder="e.g. 3.00"></label>
+    </div>
+    <p class="panel-note">The world heading convention is +z straight out from the camera baseline. Heading offsets are measured from that direction and are fitted independently for Camera A and Camera B.</p>
+    <div class="btn-row"><button id="headingReconnect">Reconnect previews</button><button id="headingUndo">Undo point</button><button id="headingClear">Clear points</button></div>
+    <p id="headingStatus" role="status" aria-live="polite">Enter a point depth, then click a feature in Camera A and the same feature in Camera B.</p>
+    <div class="wall-feeds">
+      <section><h2>Camera A — left</h2><div class="wall-view" id="headingViewA"><img id="headingImageA" alt="Camera A preview for heading calibration"></div></section>
+      <section><h2>Camera B — right</h2><div class="wall-view" id="headingViewB"><img id="headingImageB" alt="Camera B preview for heading calibration"></div></section>
+    </div>
+    <div class="table-scroll"><table><thead><tr><th>Pair</th><th>Depth</th><th>A position</th><th>B position</th><th>Residual</th><th>Status</th><th></th></tr></thead><tbody id="headingPoints"></tbody></table></div>
+    <div class="btn-row"><button id="headingFit" class="primary" disabled>Fit camera headings</button><button id="headingApply" disabled>Apply and save heading calibration</button></div>
+    <p id="headingResult" role="status">Collect at least three pairs; five or more are recommended.</p>
+  </section>
+  <h2>Wall HFOV calibration (legacy)</h2>
+  <p>Use a flat wall parallel to the camera baseline. Cameras must be level, parallel and facing straight toward the wall, with Camera A on the left. Measure from the camera lenses, not the laptop edges.</p>
+  <div class="settings-grid wall-settings">
+    <label>Camera separation (m)<input id="wallBaseline" type="number" min="0.01" step="0.01" placeholder="e.g. 1.25"></label>
+    <label>Perpendicular midpoint-to-wall distance (m)<input id="wallDepth" type="number" min="0.01" step="0.01" placeholder="e.g. 3.00"></label>
+  </div>
+  <p class="panel-note">Wall distance means straight ahead at 90° to the wall, not the diagonal distance to each clicked point. All points must lie on this same wall. This estimates HFOV only; it does not correct lens distortion, camera rotation or an off-center optical axis.</p>
+  <div class="btn-row"><button id="wallReconnect">Reconnect previews</button><button id="wallUndo">Undo point</button><button id="wallClear">Clear points</button></div>
+  <p id="wallStatus" role="status" aria-live="polite">Click a distinctive wall point in Camera A, then the same physical point in Camera B. Repeat at five or more positions spread left to right.</p>
+  <div class="wall-feeds">
+    <section><h2>Camera A — left</h2><div class="wall-view" id="wallViewA"><img id="wallImageA" alt="Camera A preview"></div></section>
+    <section><h2>Camera B — right</h2><div class="wall-view" id="wallViewB"><img id="wallImageB" alt="Camera B preview"></div></section>
+  </div>
+  <div class="table-scroll"><table><thead><tr><th>Pair</th><th>A position</th><th>B position</th><th>Estimated wall depth</th><th>Depth error</th><th></th></tr></thead><tbody id="wallPoints"></tbody></table></div>
+  <div class="btn-row"><button id="wallFit" class="primary" disabled>Estimate both HFOVs</button><button id="wallApply" disabled>Apply and save calibration</button></div>
+  <p id="wallResult" role="status">Collect at least five pairs to estimate HFOV.</p>
+  <p class="panel-note">Fit error shows agreement between your clicks and this wall model, not independent proof of accuracy. Recalibrate after changing cameras, zoom or image cropping. Apply saves to this browser and updates an open console at this same address.</p>
+</main><script src="/wall-calibration.js"></script><script src="/heading-calibration.js"></script><script src="/calibrate.js"></script></body>
+</html>

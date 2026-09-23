@@ -1,0 +1,18 @@
+# Python cache and compiled bytecode
+__pycache__/
+**/__pycache__/
+*.py[cod]
+
+# Local HTTPS keys for browser camera sharing
+camera-cert.pem
+camera-key.pem
+
+# Installed JavaScript tooling
+node_modules/
+
+# Local visual QA captures (source diagnostics remain trackable)
+diagnostics/*.png
+diagnostics/low_light_review.jpg
+
+# Exported/archive bundles
+*.zip

@@ -1,0 +1,51 @@
+/* Guidance console page */
+
+.index-page .dashboard {
+  display: block;
+  contain: layout;
+}
+
+.index-page .grid {
+  display: grid;
+  min-width: 0;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "camA"
+    "camB"
+    "log";
+  gap: 18px;
+  align-items: start;
+}
+
+.index-page .cam-panel.a {
+  grid-area: camA;
+}
+
+.index-page .cam-panel.b {
+  grid-area: camB;
+}
+
+.index-page .log-panel {
+  grid-area: log;
+}
+
+.index-page .sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  min-width: 0;
+}
+
+.index-page .diagram-panel,
+.index-page .position-summary-panel {
+  margin-top: 18px;
+}
+
+@media (min-width: 661px) {
+  .index-page .grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "camA camB"
+      "log log";
+  }
+}

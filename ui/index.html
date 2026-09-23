@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AERESCUE — Guidance Console</title>
+<link rel="stylesheet" href="styles.css" />
+<link rel="stylesheet" href="index.css" />
+</head>
+
+<body class="index-page">
+
+<div class="wrap">
+
+  <header class="hdr">
+
+    <div class="hdr-left">
+
+      <svg class="glyph" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="21" cy="21" r="19" stroke="var(--guide-cyan)" stroke-opacity="0.35" stroke-width="1.2"/>
+        <circle cx="21" cy="21" r="13" stroke="var(--guide-cyan)" stroke-opacity="0.35" stroke-width="1.2"/>
+        <circle cx="21" cy="21" r="2" fill="var(--signal-orange)"/>
+        <path d="M21 21 L21 4 A17 17 0 0 1 35.7 12.5 Z" fill="var(--guide-cyan)" fill-opacity="0.16"/>
+        <line x1="21" y1="21" x2="21" y2="4" stroke="var(--guide-cyan)" stroke-width="1.2"/>
+      </svg>
+
+      <div class="brand">
+        <h1>AERESCUE</h1>
+        <p>Dual-camera guidance console — shore station</p>
+      </div>
+
+    </div>
+
+    <div class="status-cluster">
+
+      <div
+        class="status-pill standby"
+        id="statusPill"
+      >
+        <span class="status-dot"></span>
+        <span id="statusLabel">STANDBY</span>
+      </div>
+
+    </div>
+
+  </header>
+
+
+  <p class="eyebrow">
+    Live camera feeds
+  </p>
+
+  <div class="dashboard">
+  <main class="grid">
+
+    <section class="cam-panel a">
+
+      <div class="cam-head">
+
+        <span class="tag">
+          CAM <b>A</b> — SHORE LEFT
+        </span>
+
+        <select
+          class="cam-select"
+          id="selectA"
+        >
+          <option value="">
+            Scanning…
+          </option>
+        </select>
+
+      </div>
+
+
+      <div
+        class="cam-canvas-wrap"
+        id="wrapA"
+      >
+
+        <img
+          id="streamA"
+          class="cam-stream"
+          alt="Live Camera A"
+        />
+
+        <span class="reticle tl" aria-hidden="true"></span>
+        <span class="reticle tr" aria-hidden="true"></span>
+        <span class="reticle bl" aria-hidden="true"></span>
+        <span class="reticle br" aria-hidden="true"></span>
+
+        <div class="live-badge" aria-hidden="true">
+          <span class="dot"></span> LIVE
+        </div>
+
+        <div
+          class="cam-hint"
+          id="hintA"
+        >
+          Click the feed to mark the simulated rescue target
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <section class="cam-panel b">
+
+      <div class="cam-head">
+
+        <span class="tag">
+          CAM <b>B</b> — SHORE RIGHT
+        </span>
+
+        <select
+          class="cam-select"
+          id="selectB"
+        >
+          <option value="">
+            Scanning…
+          </option>
+        </select>
+
+      </div>
+
+
+      <div
+        class="cam-canvas-wrap"
+        id="wrapB"
+      >
+
+        <img
+          id="streamB"
+          class="cam-stream"
+          alt="Live Camera B"
+        />
+
+        <span class="reticle tl" aria-hidden="true"></span>
+        <span class="reticle tr" aria-hidden="true"></span>
+        <span class="reticle bl" aria-hidden="true"></span>
+        <span class="reticle br" aria-hidden="true"></span>
+
+        <div class="live-badge" aria-hidden="true">
+          <span class="dot"></span> LIVE
+        </div>
+
+        <div
+          class="cam-hint"
+          id="hintB"
+        >
+          Click the feed to mark the simulated rescue target
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <section class="log-panel panel">
+
+      <h2>Mission log</h2>
+
+      <div
+        class="log"
+        id="log"
+      ></div>
+
+    </section>
+
+
+  </main>
+
+    <aside class="sidebar">
+
+
+      <div class="panel">
+
+        <h2>Mission control</h2>
+        
+        <div class="btn-row">
+
+          <button
+            id="btnLaunch"
+            class="primary"
+            disabled
+          >
+            Track object
+          </button>
+
+          <button
+            id="btnReset"
+            class="ghost"
+          >
+            Reset
+          </button>
+
+        </div>
+
+
+        <div class="btn-row">
+
+          <button
+            id="btnRescan"
+            class="ghost"
+          >
+            Rescan cameras
+          </button>
+
+        </div>
+
+      </div>
+
+      <div class="panel">
+
+        <h2>Camera calibration</h2>
+        <p class="panel-note"><a href="/calibrate" target="_blank" rel="noopener">Calibrate camera HFOVs and heading offsets</a></p>
+
+        <div class="settings-grid">
+          <label>Camera distance (m)<input id="cameraDistance" type="number" min="0.01" step="0.01" value="5"></label>
+          <label>Cam A horizontal FOV<input id="fovA" type="number" min="1" max="179" step="0.1" value="90"></label>
+          <label>Cam B horizontal FOV<input id="fovB" type="number" min="1" max="179" step="0.1" value="90"></label>
+          <label>Lateral alignment tolerance (m)<input id="lateralTolerance" type="number" min="0" step="0.01" value="3"></label>
+          <label>Stopping distance tolerance (m)<input id="stoppingDistanceTolerance" type="number" min="0" step="0.01" value="3"></label>
+        </div>
+
+        <div class="btn-row">
+          <button id="btnCalibrate" class="ghost">Save calibration</button>
+        </div>
+
+        <p class="panel-note" id="calibrationStatus">Calibration not saved.</p>
+        <p class="panel-note" id="targetDistanceEstimate">Simulated rescue target position: —</p>
+
+      </div>
+
+      <div class="panel">
+        <h2>Telemetry recording</h2>
+        <div class="settings-grid">
+          <label>Simulated rescue target distance (m)<input id="targetDistance" type="number" min="0" step="0.01" placeholder="Optional"></label>
+          <label>Trial ID<input id="trialId" type="text" placeholder="e.g. T01"></label>
+        </div>
+        <div class="btn-row">
+          <button id="btnRecord" class="ghost">Start recording</button>
+          <button id="btnExport" class="ghost">Export telemetry</button>
+        </div>
+        <p class="panel-note" id="recordingStatus">Recording off.</p>
+      </div>
+
+
+      <div class="panel">
+
+        <h2>Alignment telemetry</h2>
+
+        <p class="section-label">Error terms</p>
+
+        <div class="metric-grid">
+
+          <div class="metric">
+
+            <div class="k">
+              a — cam B: x<sub>T,R</sub> − x<sub>D,R</sub>
+            </div>
+
+            <div
+              class="v"
+              id="vA"
+            >
+              —
+            </div>
+
+          </div>
+
+
+          <div class="metric">
+
+            <div class="k">
+              b — cam A: x<sub>D,L</sub> − x<sub>T,L</sub>
+            </div>
+
+            <div
+              class="v"
+              id="vB"
+            >
+              —
+            </div>
+
+          </div>
+
+
+          <div class="metric">
+
+            <div class="k">
+              E — combined error
+            </div>
+
+            <div
+              class="v"
+              id="vE"
+            >
+              —
+            </div>
+
+          </div>
+
+
+          <div class="metric">
+
+            <div class="k">
+              Lateral alignment error (m)
+            </div>
+
+            <div
+              class="v"
+              id="vErr"
+            >
+              —
+            </div>
+
+          </div>
+
+          <div class="metric">
+            <div class="k">
+              Lateral alignment tolerance (ε_x)
+            </div>
+            <div class="v" id="vBand">—</div>
+          </div>
+
+        </div>
+
+        <p class="section-label">Control loop</p>
+
+        <div class="metric-grid">
+
+          <div class="metric wide">
+
+            <div class="k">
+              Tolerance closure
+            </div>
+
+            <div class="tol-bar">
+
+              <div
+                class="tol-fill"
+                id="tolFill"
+              ></div>
+
+            </div>
+
+          </div>
+
+
+          <div class="metric wide">
+
+            <div class="k">
+              Computational guidance
+            </div>
+
+            <div class="v small" id="vU">
+              Guidance command → —
+            </div>
+
+          </div>
+
+
+          <div class="metric wide">
+
+            <div class="k">
+              Response time
+            </div>
+
+            <div class="v small" id="vTime">
+              0.00 s
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="panel">
+        <h2>Trial analysis</h2>
+        <div class="metric-grid">
+          <div class="metric"><div class="k">Trials recorded</div><div class="v" id="trialCount">0</div></div>
+          <div class="metric"><div class="k">Guidance success</div><div class="v" id="successRate">—</div></div>
+          <div class="metric wide"><div class="k">Mean closest distance</div><div class="v" id="meanClosest">—</div></div>
+        </div>
+      </div>
+
+    </aside>
+
+  <section class="panel diagram-panel">
+
+    <h2>Triangulation geometry</h2>
+
+    <div class="diagram-body">
+
+      <div class="diagram-svg-wrap">
+        <svg id="triangleSvg" viewBox="0 0 640 380" preserveAspectRatio="xMidYMid meet" aria-label="Triangle formed by Camera A, Camera B and the simulated rescue target"></svg>
+      </div>
+
+      <div class="diagram-readout">
+
+        <p class="section-label">Designated moving object relative to simulated rescue target</p>
+        <div class="metric-grid">
+          <div class="metric wide">
+            <div class="k">Designated moving object to target distance (ground plane)</div>
+            <div class="v" id="dgObjectDistance">Unavailable</div>
+          </div>
+          <div class="metric">
+            <div class="k">Lateral offset</div>
+            <div class="v small" id="dgObjectLateral">Unavailable</div>
+          </div>
+          <div class="metric">
+            <div class="k">Forward offset</div>
+            <div class="v small" id="dgObjectForward">Unavailable</div>
+          </div>
+        </div>
+        <p class="panel-note">Green: designated moving object and distance to the simulated rescue target. Requires fresh detection in both cameras.</p>
+
+        <p class="section-label">Triangle sides</p>
+
+        <div class="metric-grid">
+          <div class="metric">
+            <div class="k">Baseline (A–B)</div>
+            <div class="v" id="dgBaseline">—</div>
+          </div>
+          <div class="metric">
+              <div class="k">Cam A → Simulated rescue target</div>
+            <div class="v" id="dgSideA">—</div>
+          </div>
+          <div class="metric">
+              <div class="k">Cam B → Simulated rescue target</div>
+            <div class="v" id="dgSideB">—</div>
+          </div>
+          <div class="metric">
+              <div class="k">Rescue target range (midpoint)</div>
+            <div class="v" id="dgRange">—</div>
+          </div>
+        </div>
+
+        <p class="section-label">Triangle angles</p>
+
+        <div class="metric-grid">
+          <div class="metric">
+            <div class="k">∠ at Cam A</div>
+            <div class="v" id="dgAngleA">—</div>
+          </div>
+          <div class="metric">
+            <div class="k">∠ at Cam B</div>
+            <div class="v" id="dgAngleB">—</div>
+          </div>
+          <div class="metric">
+              <div class="k">∠ at Rescue Target</div>
+            <div class="v" id="dgAngleT">—</div>
+          </div>
+          <div class="metric">
+              <div class="k">Rescue target heading</div>
+            <div class="v" id="dgHeading">—</div>
+          </div>
+        </div>
+
+        <p class="section-label">Range line (debug)</p>
+
+        <div class="metric-grid">
+          <div class="metric">
+            <div class="k">Cam A ⟂ to range line</div>
+            <div class="v" id="dgPerpA">—</div>
+          </div>
+          <div class="metric">
+            <div class="k">Cam B ⟂ to range line</div>
+            <div class="v" id="dgPerpB">—</div>
+          </div>
+          <div class="metric wide">
+            <div class="k">Line = target's forward distance, measured straight ahead (90° heading) from the baseline — not the diagonal line-of-sight</div>
+            <div class="v" id="dgLineDepth">—</div>
+          </div>
+        </div>
+
+        <p class="panel-note" id="diagramStatus">Mark the simulated rescue target in both camera feeds to render the triangulation triangle.</p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <section class="panel position-summary-panel" aria-live="polite">
+    <h2>Midpoint position</h2>
+    <div class="metric-grid">
+      <div class="metric">
+        <div class="k">Displacement from camera midpoint</div>
+        <div class="v" id="midpointDisplacement">Unavailable</div>
+      </div>
+      <div class="metric">
+        <div class="k">Perpendicular distance from baseline</div>
+        <div class="v" id="perpendicularDistance">Unavailable</div>
+      </div>
+    </div>
+  </section>
+
+  </div>
+
+</div>
+
+
+<script src="app.js"></script>
+
+</body>
+</html>

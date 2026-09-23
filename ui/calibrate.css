@@ -1,0 +1,93 @@
+/* Camera calibration page */
+
+.calibration-page main {
+  max-width: 1200px;
+  margin: 24px auto;
+  padding: 20px;
+  display: block;
+}
+
+.calibration-page a {
+  color: var(--guide-cyan);
+}
+
+.calibration-page .wall-feeds {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin: 20px 0;
+}
+
+.calibration-page .wall-view {
+  position: relative;
+  line-height: 0;
+  min-height: 140px;
+  background: #111;
+}
+
+.calibration-page .wall-view img {
+  width: 100%;
+  height: auto;
+  display: block;
+  cursor: crosshair;
+}
+
+.calibration-page .wall-point {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  border: 2px solid #fff;
+  border-radius: 50%;
+  background: #007b70;
+  color: white;
+  font: 12px monospace;
+  line-height: 22px;
+  text-align: center;
+  width: 26px;
+  height: 26px;
+  pointer-events: none;
+}
+
+.calibration-page .wall-point.pending {
+  background: #bb4c00;
+}
+
+.calibration-page .wall-settings {
+  max-width: 600px;
+}
+
+.calibration-page #wallStatus {
+  min-height: 3em;
+}
+
+.calibration-page table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 16px 0;
+  font: 12px monospace;
+}
+
+.calibration-page th,
+.calibration-page td {
+  text-align: left;
+  padding: 8px;
+  border-bottom: 1px solid var(--line-hair);
+}
+
+.calibration-page .wall-mismatch {
+  color: var(--signal-orange);
+}
+
+.calibration-page td button {
+  padding: 5px;
+  font-size: 10px;
+}
+
+.calibration-page .table-scroll {
+  overflow: auto;
+}
+
+@media (max-width: 700px) {
+  .calibration-page .wall-feeds {
+    grid-template-columns: 1fr;
+  }
+}

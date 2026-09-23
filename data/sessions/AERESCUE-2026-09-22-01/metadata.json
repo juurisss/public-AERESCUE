@@ -1,0 +1,21 @@
+{
+  "sessionId": "AERESCUE-2026-09-22-01-03",
+  "baseline": 2,
+  "notes": "",
+  "createdBy": "AERESCUE data collection",
+  "calibration": {
+    "baseline": 2,
+    "fovA": 82.2158597310833,
+    "fovB": 82.30559980543383,
+    "phiA": -4.058592894839862,
+    "phiB": -0.4487567663845956,
+    "version": "2026-09-21T06:39:21.619Z"
+  },
+  "software": {
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36",
+    "page": "data-collection"
+  },
+  "schemaVersion": 1,
+  "createdAt": "2026-09-22T00:46:03.566099Z",
+  "updatedAt": "2026-09-22T06:51:21.190961Z"
+}

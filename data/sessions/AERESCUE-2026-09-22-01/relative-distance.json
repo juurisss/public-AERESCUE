@@ -1,0 +1,410 @@
+[
+  {
+    "trialId": "RELATIVE-001",
+    "trialNumber": 6,
+    "recordedAt": "2026-09-22T06:18:18.251Z",
+    "validity": "Valid",
+    "excluded": false,
+    "exclusionReason": "",
+    "notes": "",
+    "calibration": {
+      "baseline": 2,
+      "fovA": 80,
+      "fovB": 80,
+      "phiA": -1.6053328031481444,
+      "phiB": -0.5155234380888732,
+      "version": "2026-09-22T06:14:13.272Z"
+    },
+    "actualTargetToObjectDistance": 14,
+    "estimatedTargetToObjectDistance": 16.10736313202068,
+    "relativeDistanceAbsoluteError": 2.10736313202068,
+    "targetPosition": {
+      "x": -1.068063076411651,
+      "z": 28.103753677325837,
+      "midpointDistance": 28.124041841296556,
+      "perpendicularDistance": 28.103753677325837,
+      "imageA": 0.5152556909480758,
+      "imageB": 0.46153844136221717
+    },
+    "objectPosition": {
+      "x": -0.22007298573764977,
+      "z": 12.018727725438232
+    },
+    "systemOutputCapturedAt": "2026-09-22T06:17:59.810Z",
+    "createdAt": "2026-09-22T06:18:18.286715Z"
+  },
+  {
+    "trialId": "RELATIVE-002",
+    "trialNumber": 7,
+    "recordedAt": "2026-09-22T06:22:10.706Z",
+    "validity": "Valid",
+    "excluded": false,
+    "exclusionReason": "",
+    "notes": "",
+    "calibration": {
+      "baseline": 2,
+      "fovA": 80,
+      "fovB": 80,
+      "phiA": -1.6053328031481444,
+      "phiB": -0.5155234380888732,
+      "version": "2026-09-22T06:14:13.272Z"
+    },
+    "actualTargetToObjectDistance": 15.23,
+    "estimatedTargetToObjectDistance": 16.669654387992956,
+    "relativeDistanceAbsoluteError": 1.439654387992956,
+    "targetPosition": {
+      "x": -1.068063076411651,
+      "z": 28.103753677325837,
+      "midpointDistance": 28.124041841296556,
+      "perpendicularDistance": 28.103753677325837,
+      "imageA": 0.5152556909480758,
+      "imageB": 0.46153844136221717
+    },
+    "objectPosition": {
+      "x": -6.868276616930613,
+      "z": 12.475737158921678
+    },
+    "systemOutputCapturedAt": "2026-09-22T06:22:08.765Z",
+    "createdAt": "2026-09-22T06:22:10.880415Z"
+  },
+  {
+    "trialId": "RELATIVE-003",
+    "trialNumber": 8,
+    "recordedAt": "2026-09-22T06:28:08.465Z",
+    "validity": "Valid",
+    "excluded": false,
+    "exclusionReason": "",
+    "notes": "",
+    "calibration": {
+      "baseline": 2,
+      "fovA": 80,
+      "fovB": 80,
+      "phiA": -1.6053328031481444,
+      "phiB": -0.5155234380888732,
+      "version": "2026-09-22T06:14:13.272Z"
+    },
+    "actualTargetToObjectDistance": 15.65,
+    "estimatedTargetToObjectDistance": 16.669654387992956,
+    "relativeDistanceAbsoluteError": 1.019654387992956,
+    "targetPosition": {
+      "x": -1.068063076411651,
+      "z": 28.103753677325837,
+      "midpointDistance": 28.124041841296556,
+      "perpendicularDistance": 28.103753677325837,
+      "imageA": 0.5152556909480758,
+      "imageB": 0.46153844136221717
+    },
+    "objectPosition": {
+      "x": -6.868276616930613,
+      "z": 12.475737158921678
+    },
+    "systemOutputCapturedAt": "2026-09-22T06:22:08.765Z",
+    "createdAt": "2026-09-22T06:28:08.563376Z"
+  },
+  {
+    "trialId": "RELATIVE-004",
+    "trialNumber": 9,
+    "recordedAt": "2026-09-22T06:36:55.325Z",
+    "validity": "Valid",
+    "excluded": false,
+    "exclusionReason": "",
+    "notes": "",
+    "calibration": {
+      "baseline": 2,
+      "fovA": 80,
+      "fovB": 80,
+      "phiA": -1.6053328031481444,
+      "phiB": -0.5155234380888732,
+      "version": "2026-09-22T06:14:13.272Z"
+    },
+    "actualTargetToObjectDistance": 8.17,
+    "estimatedTargetToObjectDistance": 9.128332978289551,
+    "relativeDistanceAbsoluteError": 0.9583329782895511,
+    "targetPosition": {
+      "x": -0.25778834110775983,
+      "z": 28.131572757079027,
+      "midpointDistance": 28.132753875432137,
+      "perpendicularDistance": 28.131572757079027,
+      "imageA": 0.532445205569727,
+      "imageB": 0.4787279559838683
+    },
+    "objectPosition": {
+      "x": 3.2214915071531998,
+      "z": 19.69231480984138
+    },
+    "systemOutputCapturedAt": "2026-09-22T06:35:18.747Z",
+    "createdAt": "2026-09-22T06:36:55.609103Z"
+  },
+  {
+    "trialId": "RELATIVE-005",
+    "trialNumber": 9,
+    "recordedAt": "2026-09-22T06:37:59.068Z",
+    "validity": "Valid",
+    "excluded": false,
+    "exclusionReason": "",
+    "notes": "",
+    "calibration": {
+      "baseline": 2,
+      "fovA": 80,
+      "fovB": 80,
+      "phiA": -1.6053328031481444,
+      "phiB": -0.5155234380888732,
+      "version": "2026-09-22T06:14:13.272Z"
+    },
+    "actualTargetToObjectDistance": 8.17,
+    "estimatedTargetToObjectDistance": 9.128332978289551,
+    "relativeDistanceAbsoluteError": 0.9583329782895511,
+    "targetPosition": {
+      "x": -0.25778834110775983,
+      "z": 28.131572757079027,
+      "midpointDistance": 28.132753875432137,
+      "perpendicularDistance": 28.131572757079027,
+      "imageA": 0.532445205569727,
+      "imageB": 0.4787279559838683
+    },
+    "objectPosition": {
+      "x": 3.2214915071531998,
+      "z": 19.69231480984138
+    },
+    "systemOutputCapturedAt": "2026-09-22T06:35:18.747Z",
+    "createdAt": "2026-09-22T06:37:59.111437Z"
+  },
+  {
+    "trialId": "RELATIVE-005-1",
+    "trialNumber": 10,
+    "recordedAt": "2026-09-22T06:39:46.178Z",
+    "validity": "Valid",
+    "excluded": false,
+    "exclusionReason": "",
+    "notes": "",
+    "calibration": {
+      "baseline": 2,
+      "fovA": 80,
+      "fovB": 80,
+      "phiA": -1.6053328031481444,
+      "phiB": -0.5155234380888732,
+      "version": "2026-09-22T06:14:13.272Z"
+    },
+    "actualTargetToObjectDistance": 9.43,
+    "estimatedTargetToObjectDistance": 11.508795538358871,
+    "relativeDistanceAbsoluteError": 2.0787955383588717,
+    "targetPosition": {
+      "x": -0.25778834110775983,
+      "z": 28.131572757079027,
+      "midpointDistance": 28.132753875432137,
+      "perpendicularDistance": 28.131572757079027,
+      "imageA": 0.532445205569727,
+      "imageB": 0.4787279559838683
+    },
+    "objectPosition": {
+      "x": -6.197152711200003,
+      "z": 18.273767442353652
+    },
+    "systemOutputCapturedAt": "2026-09-22T06:39:37.737Z",
+    "createdAt": "2026-09-22T06:39:46.226326Z"
+  },
+  {
+    "trialId": "RELATIVE-006",
+    "trialNumber": 11,
+    "recordedAt": "2026-09-22T06:41:58.878Z",
+    "validity": "Valid",
+    "excluded": false,
+    "exclusionReason": "",
+    "notes": "",
+    "calibration": {
+      "baseline": 2,
+      "fovA": 80,
+      "fovB": 80,
+      "phiA": -1.6053328031481444,
+      "phiB": -0.5155234380888732,
+      "version": "2026-09-22T06:14:13.272Z"
+    },
+    "actualTargetToObjectDistance": 20.59,
+    "estimatedTargetToObjectDistance": 21.921503163512973,
+    "relativeDistanceAbsoluteError": 1.3315031635129735,
+    "targetPosition": {
+      "x": -0.25778834110775983,
+      "z": 28.131572757079027,
+      "midpointDistance": 28.132753875432137,
+      "perpendicularDistance": 28.131572757079027,
+      "imageA": 0.532445205569727,
+      "imageB": 0.4787279559838683
+    },
+    "objectPosition": {
+      "x": -2.1125533420598304,
+      "z": 6.288675794012233
+    },
+    "systemOutputCapturedAt": "2026-09-22T06:41:37.876Z",
+    "createdAt": "2026-09-22T06:41:58.958227Z"
+  },
+  {
+    "trialId": "RELATIVE-007",
+    "trialNumber": 12,
+    "recordedAt": "2026-09-22T06:42:37.318Z",
+    "validity": "Valid",
+    "excluded": false,
+    "exclusionReason": "",
+    "notes": "",
+    "calibration": {
+      "baseline": 2,
+      "fovA": 80,
+      "fovB": 80,
+      "phiA": -1.6053328031481444,
+      "phiB": -0.5155234380888732,
+      "version": "2026-09-22T06:14:13.272Z"
+    },
+    "actualTargetToObjectDistance": 20.59,
+    "estimatedTargetToObjectDistance": 21.921503163512973,
+    "relativeDistanceAbsoluteError": 1.3315031635129735,
+    "targetPosition": {
+      "x": -0.25778834110775983,
+      "z": 28.131572757079027,
+      "midpointDistance": 28.132753875432137,
+      "perpendicularDistance": 28.131572757079027,
+      "imageA": 0.532445205569727,
+      "imageB": 0.4787279559838683
+    },
+    "objectPosition": {
+      "x": -2.1125533420598304,
+      "z": 6.288675794012233
+    },
+    "systemOutputCapturedAt": "2026-09-22T06:41:37.876Z",
+    "createdAt": "2026-09-22T06:42:37.384574Z"
+  },
+  {
+    "trialId": "RELATIVE-008",
+    "trialNumber": 13,
+    "recordedAt": "2026-09-22T06:43:56.568Z",
+    "validity": "Valid",
+    "excluded": false,
+    "exclusionReason": "",
+    "notes": "",
+    "calibration": {
+      "baseline": 2,
+      "fovA": 80,
+      "fovB": 80,
+      "phiA": -1.6053328031481444,
+      "phiB": -0.5155234380888732,
+      "version": "2026-09-22T06:14:13.272Z"
+    },
+    "actualTargetToObjectDistance": 25,
+    "estimatedTargetToObjectDistance": 21.921503163512973,
+    "relativeDistanceAbsoluteError": 3.0784968364870267,
+    "targetPosition": {
+      "x": -0.25778834110775983,
+      "z": 28.131572757079027,
+      "midpointDistance": 28.132753875432137,
+      "perpendicularDistance": 28.131572757079027,
+      "imageA": 0.532445205569727,
+      "imageB": 0.4787279559838683
+    },
+    "objectPosition": {
+      "x": -2.1125533420598304,
+      "z": 6.288675794012233
+    },
+    "systemOutputCapturedAt": "2026-09-22T06:41:37.876Z",
+    "createdAt": "2026-09-22T06:43:56.629582Z"
+  },
+  {
+    "trialId": "RELATIVE-008-1",
+    "trialNumber": 4,
+    "recordedAt": "2026-09-22T06:44:14.322Z",
+    "validity": "Valid",
+    "excluded": false,
+    "exclusionReason": "",
+    "notes": "",
+    "calibration": {
+      "baseline": 2,
+      "fovA": 80,
+      "fovB": 80,
+      "phiA": -1.6053328031481444,
+      "phiB": -0.5155234380888732,
+      "version": "2026-09-22T06:14:13.272Z"
+    },
+    "actualTargetToObjectDistance": 25,
+    "estimatedTargetToObjectDistance": 24.628376673202727,
+    "relativeDistanceAbsoluteError": 0.3716233267972733,
+    "targetPosition": {
+      "x": -0.25778834110775983,
+      "z": 28.131572757079027,
+      "midpointDistance": 28.132753875432137,
+      "perpendicularDistance": 28.131572757079027,
+      "imageA": 0.532445205569727,
+      "imageB": 0.4787279559838683
+    },
+    "objectPosition": {
+      "x": -0.049577111134462615,
+      "z": 3.5040762208724057
+    },
+    "systemOutputCapturedAt": "2026-09-22T06:44:07.756Z",
+    "createdAt": "2026-09-22T06:44:14.357608Z"
+  },
+  {
+    "trialId": "RELATIVE-009",
+    "trialNumber": 14,
+    "recordedAt": "2026-09-22T06:46:20.285Z",
+    "validity": "Valid",
+    "excluded": false,
+    "exclusionReason": "",
+    "notes": "",
+    "calibration": {
+      "baseline": 2,
+      "fovA": 80,
+      "fovB": 80,
+      "phiA": -1.6053328031481444,
+      "phiB": -0.5155234380888732,
+      "version": "2026-09-22T06:14:13.272Z"
+    },
+    "actualTargetToObjectDistance": 21.37,
+    "estimatedTargetToObjectDistance": 21.840820560218702,
+    "relativeDistanceAbsoluteError": 0.47082056021870144,
+    "targetPosition": {
+      "x": -0.25778834110775983,
+      "z": 28.131572757079027,
+      "midpointDistance": 28.132753875432137,
+      "perpendicularDistance": 28.131572757079027,
+      "imageA": 0.532445205569727,
+      "imageB": 0.4787279559838683
+    },
+    "objectPosition": {
+      "x": -4.568479173038508,
+      "z": 6.720375048982916
+    },
+    "systemOutputCapturedAt": "2026-09-22T06:45:58.737Z",
+    "createdAt": "2026-09-22T06:46:20.348731Z"
+  },
+  {
+    "trialId": "RELATIVE-010",
+    "trialNumber": 15,
+    "recordedAt": "2026-09-22T06:48:53.067Z",
+    "validity": "Valid",
+    "excluded": false,
+    "exclusionReason": "",
+    "notes": "",
+    "calibration": {
+      "baseline": 2,
+      "fovA": 80,
+      "fovB": 80,
+      "phiA": -1.6053328031481444,
+      "phiB": -0.5155234380888732,
+      "version": "2026-09-22T06:14:13.272Z"
+    },
+    "actualTargetToObjectDistance": 19.41,
+    "estimatedTargetToObjectDistance": 20.229420734381655,
+    "relativeDistanceAbsoluteError": 0.8194207343816551,
+    "targetPosition": {
+      "x": -0.25778834110775983,
+      "z": 28.131572757079027,
+      "midpointDistance": 28.132753875432137,
+      "perpendicularDistance": 28.131572757079027,
+      "imageA": 0.532445205569727,
+      "imageB": 0.4787279559838683
+    },
+    "objectPosition": {
+      "x": 4.990464395135736,
+      "z": 8.594804691067113
+    },
+    "systemOutputCapturedAt": "2026-09-22T06:48:48.767Z",
+    "createdAt": "2026-09-22T06:48:53.130077Z"
+  }
+]

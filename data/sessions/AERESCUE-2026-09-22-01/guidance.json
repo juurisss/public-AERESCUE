@@ -1,0 +1,66 @@
+[
+  {
+    "trialId": "GUIDANCE-001",
+    "trialNumber": 6,
+    "recordedAt": "2026-09-22T06:18:59.566Z",
+    "validity": "Valid",
+    "excluded": false,
+    "exclusionReason": "",
+    "notes": "",
+    "calibration": {
+      "baseline": 2,
+      "fovA": 80,
+      "fovB": 80,
+      "phiA": -1.6053328031481444,
+      "phiB": -0.5155234380888732,
+      "version": "2026-09-22T06:14:13.272Z"
+    },
+    "expectedOutput": "FORWARD",
+    "generatedOutput": "FORWARD",
+    "correct": true,
+    "directionalError": 0.8449243462266003,
+    "targetPosition": {
+      "x": -1.06806307641165,
+      "z": 28.103753677325834
+    },
+    "objectPosition": {
+      "x": -0.22313873018504982,
+      "z": 11.97148439738923
+    },
+    "relativeDistance": 16.154380497909315,
+    "systemOutputCapturedAt": "2026-09-22T06:18:58.743Z",
+    "createdAt": "2026-09-22T06:18:59.622099Z"
+  },
+  {
+    "trialId": "GUIDANCE-002",
+    "trialNumber": 2,
+    "recordedAt": "2026-09-22T06:51:20.784Z",
+    "validity": "Valid",
+    "excluded": false,
+    "exclusionReason": "",
+    "notes": "",
+    "calibration": {
+      "baseline": 2,
+      "fovA": 80,
+      "fovB": 80,
+      "phiA": -1.6053328031481444,
+      "phiB": -0.5155234380888732,
+      "version": "2026-09-22T06:14:13.272Z"
+    },
+    "expectedOutput": "FORWARD",
+    "generatedOutput": "FORWARD",
+    "correct": true,
+    "directionalError": 0.39265133517235207,
+    "targetPosition": {
+      "x": -0.2577883411077596,
+      "z": 28.131572757079006
+    },
+    "objectPosition": {
+      "x": 0.13486299406459246,
+      "z": 3.8208408026379552
+    },
+    "relativeDistance": 24.31390267381388,
+    "systemOutputCapturedAt": "2026-09-22T06:51:20.750Z",
+    "createdAt": "2026-09-22T06:51:21.156642Z"
+  }
+]

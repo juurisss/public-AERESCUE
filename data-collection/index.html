@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AERESCUE — Experimental Data Collection</title>
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/data-collection/styles.css">
+</head>
+<body>
+<main class="data-wrap">
+  <header class="data-header">
+    <div>
+      <p class="data-kicker">AERESCUE / RESEARCH WORKBENCH</p>
+      <h1>Experimental data collection</h1>
+      <p class="data-subtitle">Capture live AERESCUE outputs beside measured reference values. Failed trials remain part of the record.</p>
+    </div>
+    <a class="console-link" href="/" target="_blank" rel="noopener">Open guidance console</a>
+  </header>
+
+  <section class="data-panel session-panel">
+    <div class="panel-heading"><h2>Experimental session</h2><span id="liveConnection" class="connection-badge">Waiting for console</span></div>
+    <div class="session-grid">
+      <label>New session ID<input id="sessionId" placeholder="AERESCUE-2026-09-20-01"></label>
+      <label>Baseline (m)<input id="sessionBaseline" type="number" min="0.000001" step="0.001"></label>
+      <label class="session-notes">Session notes<textarea id="sessionNotes" rows="2" placeholder="Location, operators, setup notes"></textarea></label>
+    </div>
+    <div class="button-row"><button id="createSession" class="primary">Create session</button><select id="sessionSelect"><option value="">Open previous session…</option></select><button id="refreshSession" class="secondary">Refresh</button></div>
+    <p id="sessionStatus" class="form-status">Create or open a session before saving trials.</p>
+  </section>
+
+  <nav class="data-tabs" aria-label="Data collection sections">
+    <button class="tab active" data-tab="localization">1. Target localization</button>
+    <button class="tab" data-tab="tracking">2. Tracking &amp; loss/reacquisition</button>
+    <button class="tab" data-tab="relative">3. Relative distance</button>
+    <button class="tab" data-tab="guidance">4. Computational guidance</button>
+    <button class="tab" data-tab="summary">5. Summary / export</button>
+  </nav>
+
+  <section class="tab-panel active" data-panel="localization">
+    <div class="data-panel">
+      <div class="panel-heading"><div><h2>Target localization</h2><p class="panel-note">Enter physical reference measurements. Estimated values come from the current AERESCUE target marks and triangulation.</p></div><span class="research-question">RQ1 · RQ2</span></div>
+      <div class="form-grid">
+        <label>Trial ID<input id="targetTrialId" required></label>
+        <label>Trial number<input id="targetTrialNumber" type="number" min="1" step="1"></label>
+        <label>Actual midpoint distance (m)<input id="actualTargetMidpoint" type="number" min="0" step="0.001" required></label>
+        <label>Actual perpendicular distance (m)<input id="actualTargetPerpendicular" type="number" min="0" step="0.001" required></label>
+        <label>Actual lateral x (m), optional<input id="actualTargetX" type="number" step="0.001"></label>
+        <label>Actual forward z (m), optional<input id="actualTargetZ" type="number" step="0.001"></label>
+        <label>Validity / failure state<select id="targetValidity"><option>Valid</option><option>Tracking Failure</option><option>Calibration Failure</option><option>Ambiguous Detection</option><option>Operator Error</option><option>Other</option></select></label>
+        <label>Exclude from summary?<select id="targetExcluded"><option value="false">No</option><option value="true">Yes</option></select></label>
+        <label>Exclusion reason<textarea id="targetExclusionReason" rows="2"></textarea></label>
+        <label>Trial notes<textarea id="targetNotes" rows="2"></textarea></label>
+      </div>
+      <div class="capture-box"><div><span class="metric-label">Estimated midpoint distance</span><strong id="targetEstimatedMidpoint">N/A</strong></div><div><span class="metric-label">Estimated perpendicular distance</span><strong id="targetEstimatedPerpendicular">N/A</strong></div><div><span class="metric-label">Estimated position</span><strong id="targetEstimatedPosition">N/A</strong></div><button id="captureTarget" class="secondary">Capture current target estimate</button></div>
+      <div class="button-row"><button id="saveTarget" class="primary">Save localization trial</button></div>
+      <p id="targetStatus" class="form-status"></p>
+    </div>
+    <div class="data-panel"><h2>Target localization results</h2><div id="targetStats" class="stats-grid"></div><div class="table-scroll"><table><thead><tr><th>Trial</th><th>Actual midpoint</th><th>Estimated midpoint</th><th>Abs. error</th><th>Actual perpendicular</th><th>Estimated perpendicular</th><th>Abs. error</th><th>State</th></tr></thead><tbody id="targetTable"></tbody></table></div><div id="targetGroups"></div></div>
+  </section>
+
+  <section class="tab-panel" data-panel="tracking">
+    <div class="data-panel">
+      <div class="panel-heading"><div><h2>Moving-object tracking performance</h2><p class="panel-note">One observation is sampled every 250 ms from the latest synchronized AERESCUE state. A and B are valid only when their current tracker state and center are valid.</p></div><span class="research-question">RQ3</span></div>
+      <div class="form-grid compact"><label>Trial ID<input id="trackingTrialId" required></label><label>Trial number<input id="trackingTrialNumber" type="number" min="1" step="1"></label><label>Validity / failure state<select id="trackingValidity"><option>Valid</option><option>Tracking Failure</option><option>Calibration Failure</option><option>Ambiguous Detection</option><option>Operator Error</option><option>Other</option></select></label><label>Exclude from summary?<select id="trackingExcluded"><option value="false">No</option><option value="true">Yes</option></select></label><label>Exclusion reason<textarea id="trackingExclusionReason" rows="2"></textarea></label><label>Trial notes<textarea id="trackingNotes" rows="2"></textarea></label></div>
+      <div class="live-metrics"><div><span>Duration</span><strong id="trackingDuration">0.000 s</strong></div><div><span>Observations</span><strong id="trackingObservationCount">0</strong></div><div><span>Camera A</span><strong id="trackingLiveA">N/A</strong></div><div><span>Camera B</span><strong id="trackingLiveB">N/A</strong></div><div><span>Both valid</span><strong id="trackingLiveBoth">N/A</strong></div></div>
+      <div class="button-row"><button id="startTracking" class="primary">Start tracking trial</button><button id="stopTracking" class="secondary" disabled>Stop tracking trial</button></div>
+      <p id="trackingStatus" class="form-status"></p>
+    </div>
+    <div class="data-panel"><h2>Tracking performance results</h2><div id="trackingStats" class="stats-grid"></div><div class="table-scroll"><table><thead><tr><th>Trial</th><th>Camera A success</th><th>Camera B success</th><th>Both valid</th><th>Observations</th><th>Duration</th><th>State</th></tr></thead><tbody id="trackingTable"></tbody></table></div></div>
+    <div class="data-panel"><div class="panel-heading"><div><h2>Tracking loss &amp; reacquisition</h2><p class="panel-note">Losses and reacquisitions are detected automatically during the same tracking trial. Each camera is reported separately, and failed reacquisitions remain in the session.</p></div><span class="research-question">RQ3</span></div><div id="reacquisitionStats" class="stats-grid"></div><div class="table-scroll"><table><thead><tr><th>Camera</th><th>Lost at</th><th>Reacquired at</th><th>Time (ms)</th><th>Opportunity</th><th>Successful</th><th>State</th></tr></thead><tbody id="reacquisitionTable"></tbody></table></div><p id="reacquisitionStatus" class="form-status">Start a tracking trial above to collect loss/reacquisition events.</p></div>
+  </section>
+
+  <section class="tab-panel" data-panel="relative">
+    <div class="data-panel"><div class="panel-heading"><div><h2>Relative-distance estimation</h2><p class="panel-note">Enter the physical target-to-object reference distance. The estimate uses the same triangulated target and moving-object positions used by guidance.</p></div><span class="research-question">RQ4</span></div>
+      <div class="form-grid"><label>Trial ID<input id="relativeTrialId" required></label><label>Trial number<input id="relativeTrialNumber" type="number" min="1" step="1"></label><label>Actual target-to-object distance (m)<input id="actualRelativeDistance" type="number" min="0" step="0.001" required></label><label>Validity / failure state<select id="relativeValidity"><option>Valid</option><option>Tracking Failure</option><option>Calibration Failure</option><option>Ambiguous Detection</option><option>Operator Error</option><option>Other</option></select></label><label>Exclude from summary?<select id="relativeExcluded"><option value="false">No</option><option value="true">Yes</option></select></label><label>Exclusion reason<textarea id="relativeExclusionReason" rows="2"></textarea></label><label>Trial notes<textarea id="relativeNotes" rows="2"></textarea></label></div>
+      <div class="capture-box"><div><span class="metric-label">Estimated target-to-object distance</span><strong id="relativeEstimated">N/A</strong></div><div><span class="metric-label">Target position</span><strong id="relativeTargetPosition">N/A</strong></div><div><span class="metric-label">Object position</span><strong id="relativeObjectPosition">N/A</strong></div><button id="captureRelative" class="secondary">Capture current relative estimate</button></div>
+      <div class="button-row"><button id="saveRelative" class="primary">Save relative-distance trial</button></div><p id="relativeStatus" class="form-status"></p>
+    </div>
+    <div class="data-panel"><h2>Relative-distance results</h2><div id="relativeStats" class="stats-grid"></div><div class="table-scroll"><table><thead><tr><th>Trial</th><th>Actual</th><th>Estimated</th><th>Abs. error</th><th>State</th></tr></thead><tbody id="relativeTable"></tbody></table></div></div>
+  </section>
+
+  <section class="tab-panel" data-panel="guidance">
+    <div class="data-panel"><div class="panel-heading"><div><h2>Computational guidance performance</h2><p class="panel-note">Choose the expected command from the known physical arrangement. It is never inferred from the estimated coordinates.</p></div><span class="research-question">RQ5</span></div>
+      <div class="form-grid"><label>Trial ID<input id="guidanceTrialId" required></label><label>Trial number<input id="guidanceTrialNumber" type="number" min="1" step="1"></label><label>Expected output<select id="guidanceExpected"><option value="">Select reference output…</option><option>LEFT</option><option>RIGHT</option><option>FORWARD</option><option>STOP/HOLD</option></select></label><label>Validity / failure state<select id="guidanceValidity"><option>Valid</option><option>Tracking Failure</option><option>Calibration Failure</option><option>Ambiguous Detection</option><option>Operator Error</option><option>Other</option></select></label><label>Exclude from summary?<select id="guidanceExcluded"><option value="false">No</option><option value="true">Yes</option></select></label><label>Exclusion reason<textarea id="guidanceExclusionReason" rows="2"></textarea></label><label>Trial notes<textarea id="guidanceNotes" rows="2"></textarea></label></div>
+      <div class="capture-box"><div><span class="metric-label">Generated output</span><strong id="guidanceGenerated">N/A</strong></div><div><span class="metric-label">Directional error</span><strong id="guidanceError">N/A</strong></div><div><span class="metric-label">Target / object</span><strong id="guidancePositions">N/A</strong></div><button id="captureGuidance" class="secondary">Capture current guidance</button></div>
+      <div class="button-row"><button id="saveGuidance" class="primary">Save guidance trial</button></div><p id="guidanceStatus" class="form-status"></p>
+    </div>
+    <div class="data-panel"><h2>Guidance results</h2><div id="guidanceStats" class="stats-grid"></div><div class="table-scroll"><table><thead><tr><th>Trial</th><th>Expected</th><th>Generated</th><th>Correct?</th><th>Directional error</th><th>State</th></tr></thead><tbody id="guidanceTable"></tbody></table></div><div class="table-scroll"><table class="confusion"><caption>Guidance confusion matrix</caption><thead id="confusionHead"></thead><tbody id="confusionBody"></tbody></table></div></div>
+  </section>
+
+  <section class="tab-panel" data-panel="summary">
+    <div class="data-panel"><div class="panel-heading"><div><h2>Session summary</h2><p class="panel-note">Summaries use only records marked Valid. Failed and excluded records remain visible in the underlying session.</p></div></div><div id="summaryCards" class="summary-cards"></div><pre id="humanSummary" class="human-summary">Create or open a session to build a summary.</pre></div>
+    <div class="data-panel"><h2>Export</h2><p class="panel-note">Exports include raw individual trial records and preserve failure states. JSON is the complete server-backed session.</p><div class="export-grid"><button data-export="json">Complete session JSON</button><button data-export="target-localization">Target localization CSV</button><button data-export="tracking-summary">Tracking performance CSV</button><button data-export="reacquisition-events">Tracking/reacquisition CSV</button><button data-export="relative-distance">Relative-distance CSV</button><button data-export="guidance">Guidance performance CSV</button><button data-export="summary">Human-readable summary</button></div><p id="exportStatus" class="form-status"></p></div>
+  </section>
+</main>
+<script src="/data-collection/metrics.js"></script>
+<script src="/data-collection/app.js"></script>
+</body>
+</html>

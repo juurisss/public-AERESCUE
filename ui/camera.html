@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>AERESCUE — Share camera</title>
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/camera.css">
+</head>
+<body class="camera-page"><main class="panel utility-page">
+  <h1>Share this laptop’s camera</h1>
+  <p>Send video to AERESCUE while this page stays open. Your microphone is never requested. Frames are processed live, not saved by this sharing endpoint.</p>
+  <label>Camera slot
+    <select id="slot"><option value="1">Browser camera 1</option><option value="2">Browser camera 2</option></select>
+  </label>
+  <label>Camera on this laptop
+    <select id="device"><option value="">Default camera</option></select>
+  </label>
+  <div class="btn-row">
+    <button id="preview" class="primary">Allow camera / preview</button>
+    <button id="share" disabled>Start sharing</button>
+    <button id="stop" disabled>Stop camera</button>
+  </div>
+  <video id="previewVideo" autoplay muted playsinline></video>
+  <p id="shareStatus" role="status" aria-live="polite">Allow camera access, check the preview, then start sharing.</p>
+  <p>On the AERESCUE console, select the matching Browser camera slot for Camera A or B. Select two different sources, mark the target in both feeds, then start tracking.</p>
+  <details><summary>Connecting from another laptop</summary>
+    <p>Use the same Wi-Fi or hotspot. Open <strong>https://SERVER-IP:5443/camera</strong> using the server laptop’s network address. The server must be started with a certificate trusted by this laptop. Plain HTTP network addresses cannot request browser camera permission.</p>
+    <p>If your school network blocks connections between laptops, use an allowed hotspot. See <code>docs/REMOTE_CAMERAS.md</code> on the server for HTTPS setup.</p>
+  </details>
+  <p><a href="/">Open AERESCUE console</a></p>
+</main><script src="/camera.js"></script></body>
+</html>

@@ -1,0 +1,33 @@
+/* Browser camera sharing page */
+
+.camera-page main {
+  max-width: 720px;
+  margin: 32px auto;
+  padding: 20px;
+  display: block;
+}
+
+.camera-page video {
+  width: 100%;
+  background: #111;
+  margin: 16px 0;
+  border-radius: 8px;
+}
+
+.camera-page label {
+  display: block;
+  margin: 12px 0;
+}
+
+.camera-page select {
+  padding: 8px;
+  width: 100%;
+}
+
+.camera-page a {
+  color: var(--guide-cyan);
+}
+
+.camera-page #shareStatus {
+  min-height: 3em;
+}
