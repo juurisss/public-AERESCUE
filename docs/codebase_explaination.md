@@ -4,7 +4,11 @@ AERESCUE is a shore-based, dual-camera computer-vision prototype for simulated w
 
 The repository has three main runtime layers:
 
-<img width="2158" height="1985" alt="Untitled diagram-2026-09-23-020346" src="https://github.com/user-attachments/assets/4a9977df-a2c6-4a53-beee-561f93bb05d2" />
+<img
+  src="https://github.com/user-attachments/assets/d7ef5a78-b05d-40ac-917b-4ae6541cc5a0"
+  alt="AERESCUE system architecture"
+  width="600"
+/>
 
 The browser polls the server for tracking measurements. The tracker reports observations to the server, while the browser performs the display-side triangulation, relative-distance calculations, and guidance presentation.
 
